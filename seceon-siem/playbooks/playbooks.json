@@ -1,0 +1,328 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "uuid": "0dbc54dc-0c17-4ffe-8434-8b69bc823c1c",
+      "@type": "WorkflowCollection",
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "uuid": "e3079f82-4f6f-4cfc-a04e-98fe844cb13b",
+          "collection": "/api/3/workflow_collections/0dbc54dc-0c17-4ffe-8434-8b69bc823c1c",
+          "steps": [
+            {
+              "uuid": "d607f0c7-9d30-47e9-a41b-3a4c76f003b5",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "41144f9f-e531-43f5-a8e5-1f6d8d962cbd",
+              "@type": "WorkflowStep",
+              "name": "Get All Alerts",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Seceon SIEM",
+                "config": "",
+                "params": {
+                  "alertType": "",
+                  "alertSeverity": "",
+                  "alertStatus": "",
+                  "confidenceScoreRange": "",
+                  "assignedTo": "",
+                  "username": "",
+                  "createTimeRange": "",
+                  "updateTimeRange": "",
+                  "pageSize": "",
+                  "scrollID": "",
+                  "tenantID": ""
+                },
+                "version": "1.0.0",
+                "connector": "seceon-siem",
+                "operation": "retrieve_alerts",
+                "operationTitle": "Get All Alerts"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Searches for alerts in Seceon OTM using one or more filter criteria.",
+          "name": "Get All Alerts",
+          "tag": "#Seceon SIEM",
+          "recordTags": [
+            "Seceon",
+            "seceon-siem"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/d607f0c7-9d30-47e9-a41b-3a4c76f003b5",
+          "routes": [
+            {
+              "uuid": "93d42cc3-9d96-4981-afe6-92c34005d9d5",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get All Alerts",
+              "sourceStep": "/api/3/workflow_steps/d607f0c7-9d30-47e9-a41b-3a4c76f003b5",
+              "targetStep": "/api/3/workflow_steps/41144f9f-e531-43f5-a8e5-1f6d8d962cbd"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "4f0abc04-6c63-4ab2-83cb-16279adfcd11",
+          "collection": "/api/3/workflow_collections/0dbc54dc-0c17-4ffe-8434-8b69bc823c1c",
+          "steps": [
+            {
+              "uuid": "e5065306-5521-4a71-b324-193a72025000",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "638cb4b6-4f5a-4d2a-a776-67e9b552d6cc",
+              "@type": "WorkflowStep",
+              "name": "Close Alert",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Seceon SIEM",
+                "config": "",
+                "params": {
+                  "alertID": "",
+                  "closureNotes": "",
+                  "performedBy": "",
+                  "isEnforced": "",
+                  "tenantID": ""
+                },
+                "version": "1.0.0",
+                "connector": "seceon-siem",
+                "operation": "close_alert",
+                "operationTitle": "Close Alert"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Closing an alert records investigation completion and sets status to CLOSED. Optional notes support audit and compliance.",
+          "name": "Close Alert",
+          "tag": "#Seceon SIEM",
+          "recordTags": [
+            "Seceon",
+            "seceon-siem"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/e5065306-5521-4a71-b324-193a72025000",
+          "routes": [
+            {
+              "uuid": "dadf7031-08c6-48e7-8fbe-0a3e32ddb69b",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Close Alert",
+              "sourceStep": "/api/3/workflow_steps/e5065306-5521-4a71-b324-193a72025000",
+              "targetStep": "/api/3/workflow_steps/638cb4b6-4f5a-4d2a-a776-67e9b552d6cc"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "1cf67d8d-4169-4649-8704-6f249cd4986d",
+          "collection": "/api/3/workflow_collections/0dbc54dc-0c17-4ffe-8434-8b69bc823c1c",
+          "steps": [
+            {
+              "uuid": "7676b79c-c8c4-449b-8924-00fd7d5965e4",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "055b597d-ef40-48fd-84fc-4e40a1429c8f",
+              "@type": "WorkflowStep",
+              "name": "Search Threat Indicator Alert",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Seceon SIEM",
+                "config": "",
+                "params": {
+                  "alertID": "",
+                  "sourceIP": "",
+                  "destinationIP": "",
+                  "eventOrigin": "",
+                  "eventTypeName": "",
+                  "sourceDataType": "",
+                  "userName": "",
+                  "timestampRange": "",
+                  "pageSize": 20,
+                  "scrollID": "",
+                  "tenantID": ""
+                },
+                "version": "1.0.0",
+                "connector": "seceon-siem",
+                "operation": "search_threat_indicator_alert",
+                "operationTitle": "Search Threat Indicator Alert"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieve all threat indicators (evidence) that contributed to a specific alert. Threat indicators are the underlying suspicious events that, when correlated, triggered the alert.",
+          "name": "Search Threat Indicator Alert",
+          "tag": "#Seceon SIEM",
+          "recordTags": [
+            "Seceon",
+            "seceon-siem"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/7676b79c-c8c4-449b-8924-00fd7d5965e4",
+          "routes": [
+            {
+              "uuid": "16a1d393-a7ff-4485-bafb-da416b771c94",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Search Threat Indicator Alert",
+              "sourceStep": "/api/3/workflow_steps/7676b79c-c8c4-449b-8924-00fd7d5965e4",
+              "targetStep": "/api/3/workflow_steps/055b597d-ef40-48fd-84fc-4e40a1429c8f"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "bbc978a3-d18e-4147-bcf7-2c67715ec6a9",
+          "collection": "/api/3/workflow_collections/0dbc54dc-0c17-4ffe-8434-8b69bc823c1c",
+          "steps": [
+            {
+              "uuid": "e3d231ca-8e29-4cc8-8fc2-c537d28ce6ee",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "6fec029c-a436-46a5-9aa8-9018673aece2",
+              "@type": "WorkflowStep",
+              "name": "Execute API Request",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Seceon SIEM",
+                "config": "",
+                "params": {
+                  "method": [
+                    "GET"
+                  ],
+                  "endpoint": "",
+                  "queryParams": "",
+                  "requestBody": "",
+                  "tenantID": ""
+                },
+                "version": "1.0.0",
+                "connector": "seceon-siem",
+                "operation": "execute_api_request",
+                "operationTitle": "Execute API Request"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Execute an arbitrary HTTP request against the Seceon OTM REST API. Use this for endpoints not exposed as dedicated operations. The tenant_id from the connector configuration is applied automatically; override it via the Tenant ID parameter when needed.",
+          "name": "Execute API Request",
+          "tag": "#Seceon SIEM",
+          "recordTags": [
+            "Seceon",
+            "seceon-siem"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/e3d231ca-8e29-4cc8-8fc2-c537d28ce6ee",
+          "routes": [
+            {
+              "uuid": "48895341-a66c-46a5-9a3e-e75b8df3b25b",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Execute API Request",
+              "sourceStep": "/api/3/workflow_steps/e3d231ca-8e29-4cc8-8fc2-c537d28ce6ee",
+              "targetStep": "/api/3/workflow_steps/6fec029c-a436-46a5-9aa8-9018673aece2"
+            }
+          ]
+        }
+      ],
+      "name": "Sample - Seceon SIEM - 1.0.0",
+      "description": "Seceon SIEM provides integrations that allow you to retrieve alerts and close alerts with notes.",
+      "visible": true,
+      "recordTags": [
+        "Seceon",
+        "seceon-siem"
+      ]
+    }
+  ]
+}
